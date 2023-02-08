@@ -1,0 +1,38 @@
+.filter_title{
+    font-size: 3rem;
+    text-align: start;
+    margin: 1rem 0 1rem 10rem;
+}
+.filter_platforms{
+    font-size: 2rem;
+    text-align: start;
+    margin: 1rem 0 1rem 10rem;
+}
+
+.btn_platform{    
+    width: 12rem;
+    margin: 0.5rem 0.5rem 1rem 0.5rem;
+    border-radius: 10px;
+    border: none;
+    font-size: 1.4rem;
+}
+
+.btn_platform_false{
+    color: white;
+    background-color: rgba(80,80,80,1);
+}
+
+.btn_platform_true{
+    color: white;
+    background-color: rgba(0,0,0,1);
+    font-weight: 700;
+}
+
+
+
+.platform_icon{
+    position: relative;
+    bottom: 0.2rem;
+    right: 0.4rem;
+}
+

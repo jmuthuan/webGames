@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+
+@media screen and (min-width: 360px) {
+    .main_card>a {
+        width: 90%;
+        min-width: 25rem;
+        border: 2px solid black;
+        border-radius: 1rem;
+        padding: 0 0 1rem 0;
+        margin: 1rem;
+        background-color: gray;
+    }
+}
+
+@media screen and (min-width: 640px) {
+    .main_card>a {
+        width: 45%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .main_card>a {
+        width: 30%;
+    }
+    
+}
+
+.background_image img {
+    width: 100%;
+    height: 25rem;
+    border-radius: 2rem 1rem 0 0;
+
+}
+
+.platforms {
+    text-align: start;
+    margin: 0.5rem 0 0 1rem;
+}
+
+.platforms>svg {
+    margin-right: 0.5rem;
+    width: 1.4rem;
+    height: auto;
+}
+
+.game_title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: start;
+    margin: 0.5rem 1rem;
+}
+
+.rating {
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-style: italic;
+    text-align: end;
+    margin: 1rem 1rem 0 0;
+}
+
+main {
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%),
+        url(../../public/img/pacman_background.png);
+    background-repeat: repeat;
+    background-size: auto;
+}

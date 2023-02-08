@@ -15,7 +15,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,3 +36,68 @@
     transform: rotate(360deg);
   }
 }
+
+
+/******************************/
+/* main{
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;    
+}
+ */
+
+ main{
+  display: grid;
+  grid-template-areas: "aside title title title title title title title"
+                       "aside cards cards cards cards cards cards cards"
+                       "aside cards cards cards cards cards cards cards";
+  justify-items: stretch;
+
+ }
+.aside_nav{
+  grid-area: aside;  
+  width: 20rem;
+  background-color: black;
+  margin-right: 0rem;
+  margin-top: 0rem;
+  display: block; 
+}
+
+.title_filters{
+  grid-area: title;
+  width: 100%;
+  background-color: gray;
+  height: 15rem;
+  justify-items: stretch;
+}
+
+.main_card{
+  grid-area: cards;
+
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;  
+}
+
+.header_container{
+  width: 90%;
+  display: inline-block;
+}
+
+
+.search_bar{
+  width: 50%;
+  border-radius: 0.5rem;
+  margin: 1rem 5rem 10rem 5rem;
+}
+
+.search_btn {
+  width: auto;
+  border-radius: 0.5rem;
+  height: auto;
+  padding: 0 4rem;
+  background-color: gray;
+}
+
