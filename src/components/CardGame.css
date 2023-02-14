@@ -1,13 +1,5 @@
 .cardGame{
-    background: 
-        linear-gradient(to bottom,
-             rgba(100, 100, 100, 0.5) 60%, rgba(50, 50, 50, 0.95 ) 80%, rgba(0, 0, 0, 0.99) 90%),
-        url(https://media.rawg.io/media/games/253/2534a46f3da7fa7c315f1387515ca393.jpg);
-    
-    background-repeat: no-repeat;
-    background-size: cover;    
-    text-align: start;
-    padding-left: 3rem;
+    grid-area: cards;
     
 }
 

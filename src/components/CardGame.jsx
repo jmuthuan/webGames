@@ -25,41 +25,64 @@ const CardGame = () => {
     const { slug } = useParams();
 
     useEffect(() => {
+        const getGameData = async () => {
+            const res = await axios.get(`${url}${slug}?key=${API_KEY_CIBER}`);
+            setGameData(res.data);
+            console.log("setGameData");
+            //setGameData(gameDataJSON);
+        }
+
+        const getGameScreenshot = async () => {
+            const res = await axios.get(`${url}${slug}/screenshots?key=${API_KEY_CIBER}`);
+            setScreenshot(res.data.results)
+            //console.log("SetScreenshot");
+            //setScreenshot(gameScreenshotsJSON.results);
+        }
+
         getGameData();
         getGameScreenshot()
-    }, []);
+    }, [gameData.id, slug, gameScreenshot.length]);
 
-    const getGameData = async () => {
-        //const res = await axios.get("https://api.rawg.io/api/games/control?key=c4191c510ad54fb8a7ee5b559e1b712e@");
-        //const res = await axios.get(`${url}${slug}?key=${API_KEY}`)                
-        //setGameData(res.data);
-        setGameData(gameDataJSON);
-    }
-
-    const getGameScreenshot = async () => {
-        //const res = await axios.get("https://api.rawg.io/api/games/control/screenshots?key=c4191c510ad54fb8a7ee5b559e1b712e@");
-        //setScreenshot(res.data.results)
-        setScreenshot(gameScreenshotsJSON.results);
-    }
 
     const colorsPlatforms = ["", "#FF00FF", "#276CB4", "#027701", "", "", "", "#DB1D07"];
-    const parent_platforms = [1, 2, 3, 7]// gameData.parent_platforms.map(element => element.platform.id); 
+    
 
     const date_released = new Date(gameData.released);
 
     return (
-        <div className="cardGame">{/*  style={{backgroundImage: `url(${gameData.background_images})`}}> */}
+        <div className="cardGame"
+            style={{               
+                backgroundImage: `linear-gradient(to bottom, rgba(100, 100, 100, 0.5) 60%, rgba(50, 50, 50, 0.95 ) 80%, rgba(0, 0, 0, 0.99) 90%), url(${gameData.background_image})`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                textAlign: "start",
+                paddingLeft: "3rem",
+            }}>
             <div className="gameData" >
 
                 <div className="released">Released on:
                     {` ${month[date_released.getMonth()]}`} {date_released.getDate()}, {date_released.getFullYear()} </div>
 
-                <div className="card_platforms"> Platforms:
-                    <FaPlaystation color={colorsPlatforms[2]} display={parent_platforms.includes(2) ? "inline-block" : "none"} />
-                    <FaWindows color={colorsPlatforms[1]} display={parent_platforms.includes(1) ? "inline-block" : "none"} />
-                    <FaXbox color={colorsPlatforms[3]} display={parent_platforms.includes(3) ? "inline-block" : "none"} />
-                    <SiNintendo color={colorsPlatforms[7]} display={parent_platforms.includes(7) ? "inline-block" : "none"} />
-                </div>
+
+                {(() => {
+                    //const parent_platforms = [1, 2, 3, 7]// gameData.parent_platforms.map(element => element.platform.id);                    
+                    if (gameData.parent_platforms) {
+                        const parent_platforms = gameData.parent_platforms.map(element => element.platform.id);
+                        return (
+                            <div className="card_platforms"> Platforms:
+                                <FaPlaystation color={colorsPlatforms[2]} display={parent_platforms.includes(2) ? "inline-block" : "none"} />
+                                <FaWindows color={colorsPlatforms[1]} display={parent_platforms.includes(1) ? "inline-block" : "none"} />
+                                <FaXbox color={colorsPlatforms[3]} display={parent_platforms.includes(3) ? "inline-block" : "none"} />
+                                <SiNintendo color={colorsPlatforms[7]} display={parent_platforms.includes(7) ? "inline-block" : "none"} />
+
+                            </div>
+
+                        )
+
+                    }
+                })()}
+
+
 
                 <div className="avg_playtime">Average playtime: {gameData.playtime} hours</div>
 
@@ -71,12 +94,11 @@ const CardGame = () => {
 
                     <div className="gameScreenShots">
                         <div id="carouselExample" className="carousel slide">
-                            {console.log(gameScreenshot)}
                             <div className="carousel-inner" id="carousel-inner-id">
                                 {gameScreenshot.map((screenshot, index) => {
                                     return (
-                                        <div className={`carousel-item ${index ? '' : 'active'}`} > {/* //{`carousel-item ${index===0? 'active' : ''}`}> */}
-                                            <img src={screenshot.image} class="d-block w-100" alt="..." />
+                                        <div key={index} className={`carousel-item ${index ? '' : 'active'}`} > {/* //{`carousel-item ${index===0? 'active' : ''}`}> */}
+                                            <img src={screenshot.image} className="d-block w-100" alt="..." />
                                         </div>
                                     )
                                 })}
@@ -93,28 +115,39 @@ const CardGame = () => {
                         </div>
                     </div>
                 </section>
-                <section className="extraInfo">
-                    <div><span>Platforms: </span>{gameDataJSON.platforms.map((element, index) => {
-                        return (
-                            `${element.platform.name}${index === gameDataJSON.platforms.length - 1 ? '' : ', '}`
-                        )
-                    })}
 
-                    </div>
-                    <div><span>ESRB Rating: </span>{gameDataJSON.esrb_rating.name} </div>
-                    <div><span>Genre: </span> {gameDataJSON.genres.map((genre, index) => {
+                {(() => {
+                    if (gameData.platforms !== undefined) {
                         return (
-                            `${genre.name}${index === gameDataJSON.genres.length - 1 ? '' : ', '}`
+                            <section className="extraInfo">
+                                <div><span>Platforms: </span>{gameData.platforms.map((element, index) => {
+                                    return (
+                                        `${element.platform.name}${index === gameData.platforms.length - 1 ? '' : ', '}`
+                                    )
+                                })}
+                                </div>
+
+                                <div><span>ESRB Rating: </span> {gameData.esrb_rating ? gameData.esrb_rating.name : 'Not rated'}
+                                </div>
+
+
+                                <div><span>Genre: </span> {gameData.genres.map((genre, index) => {
+                                    return (
+                                        `${genre.name}${index === gameData.genres.length - 1 ? '' : ', '}`
+                                    )
+                                })}
+                                </div>
+                                <div><span>Developer: </span>{gameData.developers.map((element, index) => {
+                                    return (
+                                        `${element.name}${index === gameData.developers.length - 1 ? '' : ', '}`
+                                    )
+                                })}
+                                </div>
+                            </section>
+
                         )
-                    })}
-                    </div>
-                    <div><span>Developer: </span>{gameDataJSON.developers.map((element, index) => {
-                        return (
-                            `${element.name}${index === gameDataJSON.developers.length - 1 ? '' : ', '}`
-                        )
-                    })}
-                    </div>
-                </section>
+                    }
+                })()}
 
             </div>
         </div>

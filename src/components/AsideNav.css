@@ -16,6 +16,17 @@
     border-radius: 3px;
     border: none;
     font-size: 1.4rem;
-    background-color: rgba(50,50,50,1);
+    /* background-color: rgba(50,50,50,1);
+    color: white; */
+}
+
+.btn_genre_off{
     color: white;
+    background-color: rgba(50,50,50,1);
+}
+
+.btn_genre_on{
+    color: white;
+    background-color: rgba(0,0,0,1);
+    font-weight: 700;
 }

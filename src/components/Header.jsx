@@ -1,19 +1,18 @@
 import { useState } from "react";
 
 
-const Header = () => {
-    const [searchText, setSearchText] = useState("");
+const Header = (props) => {
+    //const [searchText, setSearchText] = useState("");
 
     const changeText = (e) =>{
-        setSearchText(e.target.value);
+        //setSearchText(e.target.value);
+        props.onChangeText(e.target.value);
     }
 
     const SearchButtonAction = (e) =>{
         e.preventDefault();
-    return(        
-        console.log("Search Button: "+searchText)
-    );
-}
+        props.onClickSearch();    
+    }
 
 
     return (
@@ -26,7 +25,7 @@ const Header = () => {
                         type="search"
                         placeholder="Search Game"
                         aria-label="Search" 
-                        value={searchText}
+                        value={props.textValue}
                         onChange={changeText}/>
                     <button
                         className="search_btn"

@@ -4,19 +4,12 @@ import { SiNintendo } from 'react-icons/si';
 import { useState } from 'react';
 
 
-const Filters = () => {
-    const [toggleButton, setToggleButton] = useState([false, false, false, false]); //[xbox, pc, playstation, nintendo]
-
-    const onClickToggleBtn = (indexBtn) => {
-        const toggle = toggleButton.map((element, index) => {
-            if (index === indexBtn) {
-                return !element;
-            }
-            else {
-                return element;
-            }
-        })
-        setToggleButton(toggle);
+const Filters = (props) => {
+    
+    const toggleButton = props.platforms; //[xbox, pc, playstation, nintendo]
+   
+    const onClickToggleBtn = (indexBtn) => {   
+        props.onPlatformChange(indexBtn);
     }
 
 
