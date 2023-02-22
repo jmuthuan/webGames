@@ -32,11 +32,25 @@ html {
     
 }
 
+.background_image{
+    width: 100%;
+    height: 56%; 
+    overflow: hidden;    
+}
+
 .background_image img {
     width: 100%;
-    height: 25rem;
+    height: 100%;
     border-radius: 2rem 1rem 0 0;
+    object-fit: cover;
+}
 
+/* .ratio_long >img{
+    height: 100%;
+} */
+.card_1{
+    width: 100%;
+    height: 35rem;
 }
 
 .platforms {

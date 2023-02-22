@@ -1,9 +1,12 @@
 .cardGame{
-    grid-area: cards;
-    
+    grid-area: cards;    
 }
 
+.gameData{    
+    padding-left: 3rem;
+}
 .h2_title{
+    grid-area: gameTitle;
     color: white;
     font-size: 4rem;
     text-align: start;
@@ -11,11 +14,11 @@
 }
 
 .released{
+  
     background-color: white;
     border-radius: 3px;
     display: inline-block;
-    padding: 0.5rem 1rem;
-    
+    padding: 0.5rem 1rem;    
 }
 
 .card_platforms {
@@ -45,23 +48,25 @@
     color: white;
     font-size: 3rem;
     display: inline-block;
-    width: 50%;
-    padding-right: 2rem;
-    margin: 1rem 1rem 1rem 0;
+    width: 100%;
+    padding: 2rem 2rem 1rem 0rem;
+}
+
+.aboutGameText > p{
+    font-size: 1.3rem;     
+    text-align: justify;    
+    display: inline-block;
     
-   
 }
 
-.aboutGame > p{
-    font-size: 1rem;    
-    display: inline-block; 
-}
-
-.aboutText{
-    font-size: 1rem;   
-    display: inline-block; 
+.aboutGameText {
+    font-size: 1.3rem;     
     text-align: justify;
+    width: 50%;
+    display: inline-block;
+    padding-right: 2rem;
 }
+
 
 .gameScreenShots{
     width: 40%;
@@ -69,7 +74,6 @@
     background-color: rgba(0, 0, 0, 0.7);
     display: inline-block;
     position: absolute;
-    margin: 0 5%;
 }
 
 #carousel-inner-id{
@@ -78,8 +82,11 @@
     width: 80%;
 }
 #carrousel-arrow/*, .carousel-indicators */ {   
-    width: 10%;
-    
+    width: 10%;    
+}
+
+.carousel-item>img, .active>img{
+    height: 30rem;
 }
 
 .extraInfo{

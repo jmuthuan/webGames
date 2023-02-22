@@ -19,15 +19,13 @@ function Cards(props) {
     const parent_platforms = props.game.parent_platforms.map(element => {
         return element.platform.id
     });
+   
 
-    if(props.game.esrb_rating===null){
-        console.log("ESRB Rating game: " + props.game.name+" = ");
-        console.log(props.game.esrb_rating);
-    }
-    
     return (
         <div className="card_1">
-            <div className="background_image"><img src={props.game.background_image} alt={`from ${props.game.name}`} ></img></div>
+
+            
+            <div className={`background_image`}><img src={props.game.background_image} alt={`from ${props.game.name}`} ></img></div>
             <div className="info">
                 <div className="platforms">
                     <FaPlaystation color={colorsPlatforms[2]} display={parent_platforms.includes(2) ? "inline-block" : "none"} />

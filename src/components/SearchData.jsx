@@ -4,7 +4,7 @@ import CardGame from '../components/CardGame';
 import Filters from '../components/Filters';
 import AsideNav from '../components/AsideNav';
 import Header from '../components/Header';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const SearchData = () => {
     /*  const state = {
@@ -37,6 +37,7 @@ const SearchData = () => {
     ));
     const [searchState, setSearch] = useState("");
     const [urlState, setUrlState] = useState("");
+    const [urlPageState, setUrlPageState] = useState(1);
     const navigate = useNavigate();
 
     //Filters component functions
@@ -93,7 +94,7 @@ const SearchData = () => {
         //genres Query
         let genreQuery = "";
         let genreArray = [];
-       
+
         genresState.forEach((value, key) => {
             if (value) {
                 genreArray.push(key)
@@ -104,6 +105,7 @@ const SearchData = () => {
         }
 
         setUrlState(`${platformQuery}${searchQuery ? '&' + searchQuery : ''}${genreQuery ? '&' + genreQuery : ''}`);
+        setUrlPageState(1);
         navigate("/search");
     }
 
@@ -114,6 +116,17 @@ const SearchData = () => {
     //AsideNav component functions
     const onClickGenreBtn = (name) => {
         setGenres(new Map(genresState.set(name, !genresState.get(name))));
+    }
+
+    useEffect(() => {
+        onPageChange();
+    }, [urlPageState])
+
+    //Pagination page change
+    const onPageChange = (page) => {
+        if (!isNaN(page)) {
+            setUrlPageState(page);            
+        }
     }
 
 
@@ -132,9 +145,27 @@ const SearchData = () => {
                     onPlatformChange={togglePlatforms} />
 
                 <Routes>
-                    <Route path="/" element={<SearchGames url={urlState} />} />
-                    <Route path="/search" element={<SearchGames url={urlState} />} />
-                    <Route path='/games/:slug' element={<CardGame />} />
+                    <Route
+                        path="/"
+                        element={<SearchGames
+                            url={urlState}
+                            urlPage={urlPageState}
+                            onPageChange={onPageChange} />} />
+                    <Route
+                        path="/search"
+                        element={<SearchGames
+                            url={urlState}
+                            urlPage={urlPageState}
+                            onPageChange={onPageChange} />} />
+                    {/* <Route
+                        path="/search/:page"
+                        element={<SearchGames
+                            url={urlState}
+                            urlPage={urlPageState}
+                            onPageChange={onPageChange} />} /> */}
+                    <Route
+                        path='/games/:slug'
+                        element={<CardGame />} />
                 </Routes>
 
             </main>

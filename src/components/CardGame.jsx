@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { FaPlaystation, FaXbox, FaWindows } from "react-icons/fa";
 import { SiNintendo } from 'react-icons/si';
+import DOMPurify from 'dompurify';
+
 import './CardGame.css'
 
 //Testin elements
@@ -45,18 +47,18 @@ const CardGame = () => {
 
 
     const colorsPlatforms = ["", "#FF00FF", "#276CB4", "#027701", "", "", "", "#DB1D07"];
-    
+
 
     const date_released = new Date(gameData.released);
 
     return (
         <div className="cardGame"
-            style={{               
+            style={{
                 backgroundImage: `linear-gradient(to bottom, rgba(100, 100, 100, 0.5) 60%, rgba(50, 50, 50, 0.95 ) 80%, rgba(0, 0, 0, 0.99) 90%), url(${gameData.background_image})`,
                 backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
+                backgroundSize: "100% auto",
                 textAlign: "start",
-                paddingLeft: "3rem",
+                paddingLeft: "0rem",
             }}>
             <div className="gameData" >
 
@@ -74,15 +76,10 @@ const CardGame = () => {
                                 <FaWindows color={colorsPlatforms[1]} display={parent_platforms.includes(1) ? "inline-block" : "none"} />
                                 <FaXbox color={colorsPlatforms[3]} display={parent_platforms.includes(3) ? "inline-block" : "none"} />
                                 <SiNintendo color={colorsPlatforms[7]} display={parent_platforms.includes(7) ? "inline-block" : "none"} />
-
                             </div>
-
                         )
-
                     }
                 })()}
-
-
 
                 <div className="avg_playtime">Average playtime: {gameData.playtime} hours</div>
 
@@ -90,7 +87,23 @@ const CardGame = () => {
 
                 <section className="aboutGame">
                     <h3>About</h3>
-                    <div className="aboutText" dangerouslySetInnerHTML={{ __html: gameData.description }} />
+                    {/* <div className="aboutGameText" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(gameData.description_raw) }}/> */}
+                    <div className="aboutGameText">
+                        {(() => {
+                            if (gameData.description_raw) {
+                                const textAboutArray = gameData.description_raw.split("\n");
+                                console.log(textAboutArray);
+                                return (
+                                    textAboutArray.map((paragraph, index) => {
+                                        return (
+                                            <p key={index}>{paragraph}</p>
+                                        )
+                                    })
+                                )
+                            }
+                        })()
+                        }
+                    </div>
 
                     <div className="gameScreenShots">
                         <div id="carouselExample" className="carousel slide">

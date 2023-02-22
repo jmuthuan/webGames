@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import gamesJSON_1 from '../components/TestingJSON/games1.json'
 import gamesJSON_2 from '../components/TestingJSON/games2.json'
 import gamesJSON_3 from '../components/TestingJSON/games3.json'
+import Pagination from '../components/Pagination';
 
 //Testin elements
 const API_KEY_CIBER = 'c21a2e0bd365470f86ef5fb3a5ce67b0';
@@ -15,33 +16,40 @@ const API_KEY_CIBER = 'c21a2e0bd365470f86ef5fb3a5ce67b0';
 const SearchGames = (props) => {
     const API_KEY = "c4191c510ad54fb8a7ee5b559e1b712e";
     const url = "https://api.rawg.io/api/games?"
+    const page_size = 30;
 
-    let urlAxios = `${url}key=${API_KEY_CIBER}`;
+    let urlAxios = `${url}page_size=${page_size}&key=${API_KEY_CIBER}`;
 
-    //console.log("url Axios: "+ urlAxios);
-    
     const [games, setGames] = useState({});
 
     useEffect(() => {  
         const getGames = async () => {
-            const res = await axios.get(urlAxios);        
+            console.log("urlPage: "+props.urlPage);
+            if(props.urlPage!==1){
+                urlAxios+=`&page=${props.urlPage}`
+            }
+            const res = await axios.get(urlAxios);     
             setGames(res.data);
             //setGames(gamesJSON_1.results);                   
         }
         
         getGames();
-    }, [games.count, games.next, props.url]); 
+        window.scrollTo(0, 0);
+    }, [games.count, games.next, props.url, props.urlPage]); 
     
    
 
     if(props.url){
-        urlAxios=`${url}${props.url}&key=${API_KEY_CIBER}`;
-        //getGames();
+        urlAxios=`${url}page_size=${page_size}&${props.url}&key=${API_KEY_CIBER}`;        
     }
 
-//    console.log("Games: ");
+    const onClickBtnPagination = (name)=>{
+        props.onPageChange(name); 
+    }
+
+
     if(games.results !== undefined){
-        console.log(games.results);
+     
         return (
             <section className='main_card'>               
                 {           
@@ -53,7 +61,19 @@ const SearchGames = (props) => {
                         )
                     }) 
                 }
+                <Pagination 
+                    pageSize={page_size} 
+                    count={games.count} 
+                    url={urlAxios}
+                    next={games.next}
+                    previous={games.previous}
+                    urlPage={props.urlPage}
+                    onClickBtnPagination = {onClickBtnPagination}
+                    />
+                    
+                
             </section>
+            
         );
 
     }
