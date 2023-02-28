@@ -1,10 +1,11 @@
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import SearchGames from '../controllers/SearchGames';
 import CardGame from '../components/CardGame';
 import Filters from '../components/Filters';
 import AsideNav from '../components/AsideNav';
 import Header from '../components/Header';
 import { useEffect, useState } from "react";
+
 
 const SearchData = () => {
     /*  const state = {
@@ -38,6 +39,12 @@ const SearchData = () => {
     const [searchState, setSearch] = useState("");
     const [urlState, setUrlState] = useState("");
     const [urlPageState, setUrlPageState] = useState(1);
+    const [orderByState, setOrderByState] = useState("relevance");
+    const [filterTitleState, setFilterTitleState] = useState("All Games");
+    const [countFoundState, setCountFoundState] = useState(0);
+    const [displayOptionState, setDisplayOptionState] = useState("grid"); //grid or full
+    const [hideGenresState, setHideGenresState] = useState(false);
+
     const navigate = useNavigate();
 
     //Filters component functions
@@ -56,7 +63,6 @@ const SearchData = () => {
 
     //Header component functions
     const onClickSearch = () => {
-
         //platform Query
         let platformQuery = "";
         if (platformState.some((element) => element === true)) {
@@ -104,6 +110,9 @@ const SearchData = () => {
             genreQuery = `genres=${genreArray.toString()}`;
         }
 
+        if (searchState) {
+            setFilterTitleState(`Results for "${searchState}"`);
+        }
         setUrlState(`${platformQuery}${searchQuery ? '&' + searchQuery : ''}${genreQuery ? '&' + genreQuery : ''}`);
         setUrlPageState(1);
         navigate("/search");
@@ -118,51 +127,84 @@ const SearchData = () => {
         setGenres(new Map(genresState.set(name, !genresState.get(name))));
     }
 
+    //Pagination page change
+    const onPageChange = (page) => {
+        if (!isNaN(page)) {
+            setUrlPageState(page);
+        }
+    }
+
+    //OrderBy dropdown Menu
+    const onClickOrderBy = (value) => {
+        //console.log(value);
+        setOrderByState(value);
+        setUrlPageState(1);
+    }
+
+    //Found items title
+    const onChangeFoundItems = (count) => {
+        setCountFoundState(count);
+    }
+
+    //display Option: grid or full display
+    const onClickDisplayOptions = (option) => {
+        setDisplayOptionState(option);
+    }
+
+    //toggle hide_show genres Button
+    const toggleGenreButton = (toggleGeneres) => {
+        setHideGenresState(!toggleGeneres);
+       /*  console.log("Testing hide show button"); */
+    }  
+
     useEffect(() => {
         onPageChange();
     }, [urlPageState])
 
-    //Pagination page change
-    const onPageChange = (page) => {
-        if (!isNaN(page)) {
-            setUrlPageState(page);            
-        }
-    }
-
-
     return (
         <div className="main_page_wraper">
+          
             <Header
                 textValue={searchState}
+                genres={genresState}
+                onClickGenreBtn={onClickGenreBtn}
                 onClickSearch={onClickSearch}
                 onChangeText={onChangeText} />
+
             <main>
                 <AsideNav
                     genres={genresState}
+                    hideGenres={hideGenresState}
+                    onClickToggleShowGenres={toggleGenreButton}
                     onClickGenreBtn={onClickGenreBtn} />
                 <Filters
                     platforms={platformState}
-                    onPlatformChange={togglePlatforms} />
-
+                    orderBy={orderByState}
+                    filterTitle={filterTitleState}
+                    countFound={countFoundState}
+                    displayOption={displayOptionState}
+                    onPlatformChange={togglePlatforms}
+                    onClickOrderBy={onClickOrderBy}
+                    onClickDisplayOptions={onClickDisplayOptions} />
                 <Routes>
                     <Route
                         path="/"
                         element={<SearchGames
                             url={urlState}
                             urlPage={urlPageState}
+                            orderBy={orderByState}
+                            displayOption={displayOptionState}
+                            onChangeFoundItems={onChangeFoundItems}
                             onPageChange={onPageChange} />} />
                     <Route
                         path="/search"
                         element={<SearchGames
                             url={urlState}
                             urlPage={urlPageState}
+                            orderBy={orderByState}
+                            displayOption={displayOptionState}
+                            onChangeFoundItems={onChangeFoundItems}
                             onPageChange={onPageChange} />} />
-                    {/* <Route
-                        path="/search/:page"
-                        element={<SearchGames
-                            url={urlState}
-                            urlPage={urlPageState}
-                            onPageChange={onPageChange} />} /> */}
                     <Route
                         path='/games/:slug'
                         element={<CardGame />} />

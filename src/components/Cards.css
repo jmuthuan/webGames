@@ -8,34 +8,86 @@ html {
 
 
 @media screen and (min-width: 360px) {
-    .main_card>a {
+    .main_grid>a {
+        width: 90%;
+       /*  min-width: 25rem; */
+        border: 2px solid black;
+        border-radius: 1rem;
+     /*    padding: 0 0 1rem 0; */
+        margin: 1rem;
+        background-color: gray;
+    }
+
+    .main_full>a {
         width: 90%;
         min-width: 25rem;
         border: 2px solid black;
         border-radius: 1rem;
-        padding: 0 0 1rem 0;
+        /* padding: 0 0 1rem 0; */
         margin: 1rem;
         background-color: gray;
+    }
+
+    .game_title {
+        font-size: 1.6rem;
+        font-weight: 700;
+        text-align: start;
+        margin: 0.5rem 1rem;
+    }
+    
+    .rating {
+        font-size: 1.3rem;
+        font-weight: 500;
+        font-style: italic;
+        text-align: end;
+        margin: 0.5rem 1rem 0 0;
     }
 }
 
 @media screen and (min-width: 640px) {
-    .main_card>a {
+    .main_grid>a {
         width: 45%;
     }
-}
 
-@media screen and (min-width: 1200px) {
-    .main_card>a {
-        width: 30%;
+    .main_full>a {
+        width: 90%;
     }
     
 }
 
+@media screen and (min-width: 768px) {
+    .main_grid>a {
+        width: 30%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .main_grid>a {
+        width: 30%;
+    }
+
+    .main_full>a {
+        width: 50%;
+    }
+    .game_title {
+        font-size: 2rem;       
+    }
+    
+    .rating {
+        font-size: 1.5rem;   
+    }    
+}
+
 .background_image{
     width: 100%;
-    height: 56%; 
+    height: 60%; 
     overflow: hidden;    
+}
+
+.image_full{
+    width: 100%;
+    height: 70%; 
+    overflow: hidden;   
 }
 
 .background_image img {
@@ -45,12 +97,14 @@ html {
     object-fit: cover;
 }
 
-/* .ratio_long >img{
-    height: 100%;
-} */
-.card_1{
+.card_grid{
     width: 100%;
     height: 35rem;
+}
+
+.card_full{
+    width: 100%;
+    height: 40rem;
 }
 
 .platforms {
@@ -64,24 +118,10 @@ html {
     height: auto;
 }
 
-.game_title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    text-align: start;
-    margin: 0.5rem 1rem;
-}
-
-.rating {
-    font-size: 1.5rem;
-    font-weight: 500;
-    font-style: italic;
-    text-align: end;
-    margin: 1rem 1rem 0 0;
-}
 
 main {
     background: linear-gradient(to bottom,
-            rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%),
+            rgba(255, 255, 255, 0.2) 0%,rgba(255, 255, 255, 0.2) 90%, rgba(0, 0, 0, 0.9) 99%),
         url(../../public/img/pacman_background.png);
     background-repeat: repeat;
     background-size: auto;

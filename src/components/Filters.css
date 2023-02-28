@@ -1,21 +1,172 @@
-.filter_title{
-    font-size: 3rem;
-    text-align: start;
-    margin: 1rem 0 1rem 10rem;
+
+
+@media screen and (min-width: 360px) {
+    .filters_wrapper{
+        grid-area: title;
+        width: 100%;
+        background-color: gray;
+        height: 20rem;
+        justify-items: stretch;
+        display: inline-block;
+        text-align: start;      
+    }
+    .filter_title{
+        font-size: 1.6rem;
+        font-weight: 700;
+        text-align: start;
+        margin: 1rem 0rem 0rem 5rem;
+        display: inline-block;
+        width: 60%;
+    }
+    .filter_found{    
+        font-size: 1.3rem;   
+        margin: 0rem 0rem 0rem 5rem;    
+    }
+
+    .displayOption{
+        display: none;
+    }
+
+    .filter_platforms, .filter_orderBy {
+        font-size: 1.6rem;
+        font-weight: 700;
+        text-align: start;
+        margin: 0rem 0rem 0rem 5rem;
+        /* display: inline-block; */
+    }
+
+    .btn_platform{    
+        width: 35%;
+        margin: 0.5rem 5vw;
+        border-radius: 10px;
+        border: none;
+        font-size: 1.1rem;
+    }
+    #dropdownBtn{    
+       /*  width: 25rem; */
+        margin: 0.5rem 0.5rem 1rem 0.5rem;
+        border-radius: 10px;
+        border: none;
+        font-size: 1.1rem;
+        background-color: rgba(80,80,80,1);
+        position: relative;
+        top: 3px;
+    }
+    
 }
-.filter_platforms{
-    font-size: 2rem;
-    text-align: start;
-    margin: 1rem 0 1rem 10rem;
+@media screen and (min-width: 640px) {    
+
+    .filter_title{
+        font-size: 2.5rem;   
+        width: 50%;
+    }
+    
+    .displayOption{
+        display: inline-block;
+        font-size: 2rem;
+        text-align: start;
+        font-weight: 700;
+    } 
+
+    .filter_platforms, .filter_orderBy {
+        font-size: 2rem;      
+    }
+
+    .btn_platform{    
+        width: auto;
+        /* margin: 0.5rem 5vw;   */      
+        font-size: 1.3rem;
+        margin: 0 0.5vw;
+        padding: 0.3vw 3vw;
+    }
+
+    #dropdownBtn{    
+        font-size: 1.3rem;
+        top: 1px;        
+     }
+
+     .displayOptionBtn{
+        display: inline-block;
+        font-size: 2rem;
+        text-align: start;
+        padding: 0 0.5rem 0 0.5rem;
+        margin: 0 0.5rem 0 1rem;
+        background-color: rgba(80,80,80,1);
+        border-radius: 5px;
+    }
+    
+    .displayOptionBtn >svg{
+        position: relative;
+        bottom: 3px;
+        color: white;
+        pointer-events: none;
+    }
 }
 
-.btn_platform{    
-    width: 12rem;
-    margin: 0.5rem 0.5rem 1rem 0.5rem;
-    border-radius: 10px;
-    border: none;
-    font-size: 1.4rem;
+@media screen and (min-width: 1200px) {
+    .filters_wrapper{        
+        height: 16rem;       
+      }
+
+    .displayOption{
+        display: inline-block;
+        font-size: 2rem;
+        text-align: start;
+    }    
+    
+    .filter_title{
+        font-size: 3rem;
+        text-align: start;
+        margin: 1rem 0 1rem 10rem;
+        display: inline-block;
+        width: 60%;
+    }
+
+    .filter_found{    
+        font-size: 1.3rem;   
+        margin: 0rem 0rem 0rem 10rem;    
+      /*   font-weight: 700; */
+    }
+
+    .filter_platforms, .filter_orderBy {
+        font-size: 2rem;
+        text-align: start;
+        margin: 0rem 0 1rem 10rem;
+        display: inline-block;
+    }
+
+    .btn_platform{    
+        width: 12rem;
+        margin: 0.5rem 0.5rem 1rem 0.5rem;
+        border-radius: 10px;
+        border: none;
+        font-size: 1.4rem;
+        /* margin: 0; */
+        padding: 0.2rem 0;
+    }
+
+    #dropdownBtn{    
+        width: 25 rem;
+        margin: 0.5rem 0.5rem 1rem 0.5rem;
+        border-radius: 10px;
+        border: none;
+        font-size: 1.4rem;
+        background-color: rgba(80,80,80,1);
+    }
 }
+
+
+.gridActive, .fullActive{   
+    background-color: rgba(0,0,0,1);
+    font-weight: 700;
+}
+
+
+#dropdown_orderBy{font-size: 2rem;    
+    margin: 1rem 0 1rem 1rem;
+    display: inline-block;
+}
+
 
 .btn_platform_false{
     color: white;
@@ -27,7 +178,6 @@
     background-color: rgba(0,0,0,1);
     font-weight: 700;
 }
-
 
 
 .platform_icon{

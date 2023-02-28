@@ -18,13 +18,14 @@ const SearchGames = (props) => {
     const url = "https://api.rawg.io/api/games?"
     const page_size = 30;
 
-    let urlAxios = `${url}page_size=${page_size}&key=${API_KEY_CIBER}`;
+    let urlAxios = `${url}page_size=${page_size}&ordering=${props.orderBy}&key=${API_KEY_CIBER}`;
 
     const [games, setGames] = useState({});
 
+
+
     useEffect(() => {  
-        const getGames = async () => {
-            console.log("urlPage: "+props.urlPage);
+        const getGames = async () => {            
             if(props.urlPage!==1){
                 urlAxios+=`&page=${props.urlPage}`
             }
@@ -34,13 +35,15 @@ const SearchGames = (props) => {
         }
         
         getGames();
+        props.onChangeFoundItems(games.count);
         window.scrollTo(0, 0);
-    }, [games.count, games.next, props.url, props.urlPage]); 
+        //console.log(urlAxios);
+    }, [games.count, games.next, props.url, props.urlPage, props.orderBy]); 
     
    
 
     if(props.url){
-        urlAxios=`${url}page_size=${page_size}&${props.url}&key=${API_KEY_CIBER}`;        
+        urlAxios=`${url}page_size=${page_size}&ordering=${props.orderBy}&${props.url}&key=${API_KEY_CIBER}`;        
     }
 
     const onClickBtnPagination = (name)=>{
@@ -48,15 +51,14 @@ const SearchGames = (props) => {
     }
 
 
-    if(games.results !== undefined){
-     
+    if(games.results !== undefined){     
         return (
-            <section className='main_card'>               
+            <section className={`main_card ${props.displayOption ==="grid"? "main_grid": "main_full"}`}>               
                 {           
                     games.results.map((game) => {
                         return (
                             <Link to={`/games/${game.slug}`} key={game.id}>
-                                <Cards  game={game} key={game.id} />
+                                <Cards  game={game} key={game.id} displayOption={props.displayOption} />
                             </Link>
                         )
                     }) 
@@ -69,15 +71,10 @@ const SearchGames = (props) => {
                     previous={games.previous}
                     urlPage={props.urlPage}
                     onClickBtnPagination = {onClickBtnPagination}
-                    />
-                    
-                
-            </section>
-            
+                    />     
+            </section>            
         );
-
     }
-
 }
 
 export default SearchGames;

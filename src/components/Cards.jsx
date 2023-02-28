@@ -22,10 +22,10 @@ function Cards(props) {
    
 
     return (
-        <div className="card_1">
+        <div className={`card_1 ${props.displayOption ==="grid"? "card_grid": "card_full"}`}>
 
             
-            <div className={`background_image`}><img src={props.game.background_image} alt={`from ${props.game.name}`} ></img></div>
+            <div className={`background_image ${props.displayOption ==="grid"? "image_grid": "image_full"}`}><img src={props.game.background_image} alt={`from ${props.game.name}`} ></img></div>
             <div className="info">
                 <div className="platforms">
                     <FaPlaystation color={colorsPlatforms[2]} display={parent_platforms.includes(2) ? "inline-block" : "none"} />

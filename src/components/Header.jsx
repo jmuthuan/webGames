@@ -1,4 +1,5 @@
 import { useState } from "react";
+import HamburgerMenu from "./HamburgerMenu";
 
 
 const Header = (props) => {
@@ -17,6 +18,10 @@ const Header = (props) => {
 
     return (
         <header className="App-header">
+            <HamburgerMenu
+                genres={props.genres}
+                onClickGenreBtn={props.onClickGenreBtn} />
+
             <div className='header_container'>
                 <div>Web Games</div>
                 <form className="search_form" role="search">

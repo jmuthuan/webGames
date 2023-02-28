@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { FaPlaystation, FaXbox, FaWindows } from "react-icons/fa";
 import { SiNintendo } from 'react-icons/si';
-import DOMPurify from 'dompurify';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/js/bootstrap.bundle.min";
 
 import './CardGame.css'
 
@@ -92,7 +93,7 @@ const CardGame = () => {
                         {(() => {
                             if (gameData.description_raw) {
                                 const textAboutArray = gameData.description_raw.split("\n");
-                                console.log(textAboutArray);
+                                //console.log(textAboutArray);
                                 return (
                                     textAboutArray.map((paragraph, index) => {
                                         return (
