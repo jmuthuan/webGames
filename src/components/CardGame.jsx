@@ -56,7 +56,7 @@ const CardGame = () => {
         <div className="cardGame"
             style={{
                 backgroundImage: `linear-gradient(to bottom, rgba(100, 100, 100, 0.5) 60%, rgba(50, 50, 50, 0.95 ) 80%, rgba(0, 0, 0, 0.99) 90%), url(${gameData.background_image})`,
-                backgroundRepeat: "no-repeat",
+                backgroundRepeat: "repeat-y",
                 backgroundSize: "100% auto",
                 textAlign: "start",
                 paddingLeft: "0rem",

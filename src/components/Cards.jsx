@@ -15,7 +15,8 @@ parent_paltforms
 
 
 function Cards(props) {
-    const colorsPlatforms = ["", "#FFFFFF", "#276CB4", "#027701", "", "", "", "#DB1D07"];
+    /* const colorsPlatforms = ["", "#FFFFFF", "#276CB4", "#027701", "", "", "", "#DB1D07"]; */
+    const colorsPlatforms = ["", "#FFFFFF", "#FFFFFF", "#FFFFFF", "", "", "", "#FFFFFF"];
     const parent_platforms = props.game.parent_platforms.map(element => {
         return element.platform.id
     });

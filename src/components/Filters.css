@@ -1,10 +1,9 @@
-
-
 @media screen and (min-width: 360px) {
     .filters_wrapper{
         grid-area: title;
         width: 100%;
-        background-color: gray;
+        background-color: #202020;
+        color: white;
         height: 20rem;
         justify-items: stretch;
         display: inline-block;
@@ -41,6 +40,7 @@
         border-radius: 10px;
         border: none;
         font-size: 1.1rem;
+        position: relative;
     }
     #dropdownBtn{    
        /*  width: 25rem; */
@@ -52,7 +52,15 @@
         position: relative;
         top: 3px;
     }
-    
+
+    #dropdownBtn[aria-expanded="true"]{
+        background-color: rgba(0,0,0,1);
+        box-shadow: 4px 4px 4px white;
+        animation: onClickBtnOn 0.2s ease-in 0s normal;
+      }
+      #dropdownBtn[aria-expanded="false"]{        
+        animation: onClickBtnOff 0.2s ease-in 0s normal;
+      }
 }
 @media screen and (min-width: 640px) {    
 
@@ -91,7 +99,8 @@
         text-align: start;
         padding: 0 0.5rem 0 0.5rem;
         margin: 0 0.5rem 0 1rem;
-        background-color: rgba(80,80,80,1);
+        background-color: #504F4F;
+        box-shadow: 4px 4px 4px #878585;
         border-radius: 5px;
     }
     
@@ -151,13 +160,15 @@
         border-radius: 10px;
         border: none;
         font-size: 1.4rem;
-        background-color: rgba(80,80,80,1);
+        background-color: #504F4F;
+        box-shadow: 4px 4px 4px #878585;
     }
 }
 
 
 .gridActive, .fullActive{   
     background-color: rgba(0,0,0,1);
+    box-shadow: 4px 4px 4px white;
     font-weight: 700;
 }
 
@@ -170,13 +181,17 @@
 
 .btn_platform_false{
     color: white;
-    background-color: rgba(80,80,80,1);
+    background-color: #504F4F;
+    box-shadow: 4px 4px 4px #878585;    
+    animation: onClickBtnOff 0.2s ease-out 0s normal;    
 }
 
 .btn_platform_true{
     color: white;
-    background-color: rgba(0,0,0,1);
+    background-color: rgba(0,0,0,1);   
     font-weight: 700;
+    box-shadow: 4px 4px 4px white;
+    animation: onClickBtnOn 0.2s ease-in 0s normal;
 }
 
 
@@ -186,3 +201,43 @@
     right: 0.4rem;
 }
 
+/* Animations */
+@keyframes onClickBtnOn {
+    0%{
+        top: 0px;
+        left: 0px;
+        box-shadow: 4px 4px 4px #878585;
+    }
+    50%{
+        top: 2px;
+        left: 2px;
+        box-shadow: 2px 2px 4px #FFFFFF;
+
+    }
+    100%{
+        top: 0px;
+        left: 0px;
+        box-shadow: 4px 4px 4px #FFFFFF;
+    }    
+}
+
+@keyframes onClickBtnOff {
+    0%{
+        top: 0px;
+        left: 0px;
+        box-shadow: 4px 4px 4px #FFFFFF;
+        background-color: #000000;
+    }   
+    50%{
+        top: 2px;
+        left: 2px;
+        box-shadow: 2px 2px 4px #FFFFFF;
+        background-color: #504F4F;
+    } 
+    100%{
+        top: 0px;
+        left: 0px;
+        box-shadow: 4px 4px 4px #878585;
+        background-color: #504F4F;
+    }
+}

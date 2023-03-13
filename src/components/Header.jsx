@@ -23,7 +23,7 @@ const Header = (props) => {
                 onClickGenreBtn={props.onClickGenreBtn} />
 
             <div className='header_container'>
-                <div>Web Games</div>
+                <div>Video Games Club</div>
                 <form className="search_form" role="search">
                     <input
                         className="search_bar"

@@ -10,12 +10,13 @@ html {
 @media screen and (min-width: 360px) {
     .main_grid>a {
         width: 90%;
-       /*  min-width: 25rem; */
         border: 2px solid black;
         border-radius: 1rem;
-     /*    padding: 0 0 1rem 0; */
         margin: 1rem;
-        background-color: gray;
+        /* background-color: gray; */
+        background-color: rgba(14,14,14,0.9);
+        color:white;
+        text-decoration: none;
     }
 
     .main_full>a {
@@ -23,7 +24,6 @@ html {
         min-width: 25rem;
         border: 2px solid black;
         border-radius: 1rem;
-        /* padding: 0 0 1rem 0; */
         margin: 1rem;
         background-color: gray;
     }
@@ -108,8 +108,8 @@ html {
 }
 
 .platforms {
-    text-align: start;
-    margin: 0.5rem 0 0 1rem;
+    text-align: end;
+    margin: 0.5rem 0.5rem 0 1rem;
 }
 
 .platforms>svg {
@@ -125,4 +125,9 @@ main {
         url(../../public/img/pacman_background.png);
     background-repeat: repeat;
     background-size: auto;
+}
+
+.main_grid>a:hover{
+    color: white;
+    text-decoration: none;
 }

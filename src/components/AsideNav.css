@@ -30,7 +30,8 @@
         margin: 0.5rem 1rem 1rem 1rem;
         border-radius: 3px;
         border: none;
-        font-size: 1.1rem;    
+        font-size: 1.1rem;  
+        position: relative;  
     }    
 }
 
@@ -45,22 +46,72 @@
     }
 }
 
-
 .btn_genre_off{
     color: white;
-    background-color: rgba(50,50,50,1);
+    background-color: #504F4F;
+    box-shadow: 4px 4px 4px #878585;   
+    animation: onClickBtnOff 0.2s ease-out 0s normal;    
 }
 
 .btn_genre_on{
     color: white;
     background-color: rgba(0,0,0,1);
     font-weight: 700;
+    box-shadow: 4px 4px 4px #FFFFFF;    
+    animation: onClickBtnOn 0.2s ease-in 0s normal;
 }
 
 .btn_show{
     display: inline-block;
+  
+}
+
+.btn_show_hide{
+    box-shadow: 4px 4px 4px #878585;
 }
 
 .btn_hide{
     display: none;
+}
+
+
+/* Animations */
+@keyframes onClickBtnOn {
+    0%{
+        top: 0px;
+        left: 0px;
+        box-shadow: 4px 4px 4px #878585;
+    }
+    50%{
+        top: 2px;
+        left: 2px;
+        box-shadow: 2px 2px 4px #FFFFFF;
+
+    }
+    100%{
+        top: 0px;
+        left: 0px;
+        box-shadow: 4px 4px 4px #FFFFFF;
+    }    
+}
+
+@keyframes onClickBtnOff {
+    0%{
+        top: 0px;
+        left: 0px;
+        box-shadow: 4px 4px 4px #FFFFFF;
+        background-color: #000000;
+    }   
+    50%{
+        top: 2px;
+        left: 2px;
+        box-shadow: 2px 2px 4px #FFFFFF;
+        background-color: #504F4F;
+    } 
+    100%{
+        top: 0px;
+        left: 0px;
+        box-shadow: 4px 4px 4px #878585;
+        background-color: #504F4F;
+    }
 }
