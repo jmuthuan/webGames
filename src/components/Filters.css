@@ -4,10 +4,11 @@
         width: 100%;
         background-color: #202020;
         color: white;
-        height: 20rem;
+        height: 21rem;
         justify-items: stretch;
         display: inline-block;
-        text-align: start;      
+        text-align: start;     
+        font-family: Turret; 
     }
     .filter_title{
         font-size: 1.6rem;
@@ -16,6 +17,11 @@
         margin: 1rem 0rem 0rem 5rem;
         display: inline-block;
         width: 60%;
+    }
+
+    .filter_subtitle{
+        font-size: 1.2rem;
+        height: 1.2rem;
     }
     .filter_found{    
         font-size: 1.3rem;   
@@ -31,7 +37,6 @@
         font-weight: 700;
         text-align: start;
         margin: 0rem 0rem 0rem 5rem;
-        /* display: inline-block; */
     }
 
     .btn_platform{    
@@ -43,7 +48,6 @@
         position: relative;
     }
     #dropdownBtn{    
-       /*  width: 25rem; */
         margin: 0.5rem 0.5rem 1rem 0.5rem;
         border-radius: 10px;
         border: none;
@@ -53,20 +57,36 @@
         top: 3px;
     }
 
-    #dropdownBtn[aria-expanded="true"]{
+    #dropdownBtn[aria-expanded="true"]{        
         background-color: rgba(0,0,0,1);
         box-shadow: 4px 4px 4px white;
         animation: onClickBtnOn 0.2s ease-in 0s normal;
       }
-      #dropdownBtn[aria-expanded="false"]{        
+    #dropdownBtn[aria-expanded="false"]{        
         animation: onClickBtnOff 0.2s ease-in 0s normal;
       }
+
+    #dropdown-show{
+        background-color: rgba(0,0,0,0.9); 
+        border-radius: 10px;  
+        box-shadow: 4px 4px 3px white;
+      }
+    .dropdown-item{
+        color: white;
+        font-size: 1.1rem;
+    }  
+    
 }
 @media screen and (min-width: 640px) {    
 
     .filter_title{
         font-size: 2.5rem;   
         width: 50%;
+    }
+    
+    .filter_subtitle{
+        font-size: 1.3rem;
+        height: 1.3rem;
     }
     
     .displayOption{
@@ -81,8 +101,7 @@
     }
 
     .btn_platform{    
-        width: auto;
-        /* margin: 0.5rem 5vw;   */      
+        width: auto;     
         font-size: 1.3rem;
         margin: 0 0.5vw;
         padding: 0.3vw 3vw;
@@ -92,6 +111,10 @@
         font-size: 1.3rem;
         top: 1px;        
      }
+
+     .dropdown-item{
+        font-size: 1.3rem;
+    }  
 
      .displayOptionBtn{
         display: inline-block;
@@ -106,7 +129,7 @@
     
     .displayOptionBtn >svg{
         position: relative;
-        bottom: 3px;
+        bottom: 1px;
         color: white;
         pointer-events: none;
     }
@@ -114,7 +137,7 @@
 
 @media screen and (min-width: 1200px) {
     .filters_wrapper{        
-        height: 16rem;       
+        height: 19rem;       
       }
 
     .displayOption{
@@ -133,8 +156,7 @@
 
     .filter_found{    
         font-size: 1.3rem;   
-        margin: 0rem 0rem 0rem 10rem;    
-      /*   font-weight: 700; */
+        margin: 0rem 0rem 0rem 10rem;  
     }
 
     .filter_platforms, .filter_orderBy {
@@ -150,7 +172,6 @@
         border-radius: 10px;
         border: none;
         font-size: 1.4rem;
-        /* margin: 0; */
         padding: 0.2rem 0;
     }
 
@@ -163,6 +184,10 @@
         background-color: #504F4F;
         box-shadow: 4px 4px 4px #878585;
     }
+
+    dropdown-item{
+        font-size: 1.4rem;
+    }  
 }
 
 
@@ -173,11 +198,11 @@
 }
 
 
-#dropdown_orderBy{font-size: 2rem;    
+#dropdown_orderBy{
+    font-size: 2rem;    
     margin: 1rem 0 1rem 1rem;
     display: inline-block;
 }
-
 
 .btn_platform_false{
     color: white;

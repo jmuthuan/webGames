@@ -10,13 +10,17 @@ html {
 @media screen and (min-width: 360px) {
     .main_grid>a {
         width: 90%;
-        border: 2px solid black;
+        border: 1px solid black;
         border-radius: 1rem;
         margin: 1rem;
-        /* background-color: gray; */
         background-color: rgba(14,14,14,0.9);
         color:white;
         text-decoration: none;
+        font-family: Turret;
+        position: relative;
+        bottom: 0px;
+        right: 0px;
+        transition: all 0.2s ease-out;
     }
 
     .main_full>a {
@@ -25,14 +29,20 @@ html {
         border: 2px solid black;
         border-radius: 1rem;
         margin: 1rem;
-        background-color: gray;
+        background-color: rgba(14,14,14,0.9);
+        color:white;
+        text-decoration: none;
+        position: relative;
+        bottom: 0px;
+        right: 0px;
+        transition: all 0.2s ease-out;
     }
 
     .game_title {
         font-size: 1.6rem;
         font-weight: 700;
         text-align: start;
-        margin: 0.5rem 1rem;
+        margin: 0.5rem 1rem;       
     }
     
     .rating {
@@ -75,7 +85,7 @@ html {
     
     .rating {
         font-size: 1.5rem;   
-    }    
+    }   
 }
 
 .background_image{
@@ -118,16 +128,12 @@ html {
     height: auto;
 }
 
-
-main {
-    background: linear-gradient(to bottom,
-            rgba(255, 255, 255, 0.2) 0%,rgba(255, 255, 255, 0.2) 90%, rgba(0, 0, 0, 0.9) 99%),
-        url(../../public/img/pacman_background.png);
-    background-repeat: repeat;
-    background-size: auto;
-}
-
-.main_grid>a:hover{
+.main_grid>a:hover, .main_full>a:hover {
     color: white;
     text-decoration: none;
+    box-shadow: 6px 6px 4px white;
+    transition: all 0.2s ease-in;
+    bottom: 5px;    
+    right: 5px;
+    position: relative;
 }

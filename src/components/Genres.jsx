@@ -15,8 +15,9 @@ const Genres = (props) => {
 
     return (
         <nav className={`aside_nav_container ${props.hamburger?'aside_container_flex':''}`}>
-                <a className="home" href="http://localhost:3000/">Home</a>
-
+                {/* <a className="home" href="http://localhost:3000/">Home</a> */}
+                <a className="home" href='/'>Home</a>
+                
                 {
                     genres.results.map((genre, index) => {
                         let hide_flag = "btn_show";

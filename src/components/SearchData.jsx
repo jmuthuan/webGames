@@ -40,7 +40,7 @@ const SearchData = () => {
     const [urlState, setUrlState] = useState("");
     const [urlPageState, setUrlPageState] = useState(1);
     const [orderByState, setOrderByState] = useState("relevance");
-    const [filterTitleState, setFilterTitleState] = useState("All Games");
+    const [filterTitleState, setFilterTitleState] = useState(["All Games","",""]);
     const [countFoundState, setCountFoundState] = useState(0);
     const [displayOptionState, setDisplayOptionState] = useState("grid"); //grid or full
     const [hideGenresState, setHideGenresState] = useState(false);
@@ -63,7 +63,34 @@ const SearchData = () => {
 
     //Header component functions
     const onClickSearch = () => {
+        
+        //search Query
+        let searchQuery = "";
+        if (searchState) {
+            searchQuery = `search=${searchState}`.replaceAll(' ', '%20');      //change spaces for %20
+        }
+
+        //genres Query
+        let genreQuery = "";
+        let genreArray = [];
+
+        let title=["All Games","",""];
+        if (searchState) {
+            title[0]=`Results for "${searchState}"`;
+        }
+
+        genresState.forEach((value, key) => {
+            if (value) {
+                genreArray.push(key)
+            }
+        })
+        if (genreArray.length) {
+            genreQuery = `genres=${genreArray.toString()}`;
+            title[1]=" (Genres Selelected) ";
+        }
+         
         //platform Query
+
         let platformQuery = "";
         if (platformState.some((element) => element === true)) {
             platformQuery = "parent_platforms=";
@@ -89,30 +116,10 @@ const SearchData = () => {
                 }
             })
             platformQuery = platformQuery.slice(0, platformQuery.length - 1);
+            title[2]=" (Platforms selected) ";
         }
 
-        //search Query
-        let searchQuery = "";
-        if (searchState) {
-            searchQuery = `search=${searchState}`.replaceAll(' ', '%20');      //change spaces for %20
-        }
-
-        //genres Query
-        let genreQuery = "";
-        let genreArray = [];
-
-        genresState.forEach((value, key) => {
-            if (value) {
-                genreArray.push(key)
-            }
-        })
-        if (genreArray.length) {
-            genreQuery = `genres=${genreArray.toString()}`;
-        }
-
-        if (searchState) {
-            setFilterTitleState(`Results for "${searchState}"`);
-        }
+        setFilterTitleState(title);
         setUrlState(`${platformQuery}${searchQuery ? '&' + searchQuery : ''}${genreQuery ? '&' + genreQuery : ''}`);
         setUrlPageState(1);
         navigate("/search");
@@ -171,7 +178,7 @@ const SearchData = () => {
                 onClickSearch={onClickSearch}
                 onChangeText={onChangeText} />
 
-            <main>
+            <main className="main">
                 <AsideNav
                     genres={genresState}
                     hideGenres={hideGenresState}
@@ -211,6 +218,10 @@ const SearchData = () => {
                 </Routes>
 
             </main>
+            <footer className="footer">
+                <div> Developed by: José Muthuan</div>
+                <div>Copyright © {new Date().getFullYear()} - All Rights Reserved</div>
+            </footer>
         </div>
     );
 }

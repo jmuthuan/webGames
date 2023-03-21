@@ -64,34 +64,40 @@ const Filters = (props) => {
             break;
     }
 
-    const onClickDisplay = (e) => {             
+    const onClickDisplay = (e) => {
         props.onClickDisplayOptions(e.target.getAttribute("value"));
     }
 
-    return (
-        <section className='filters_wrapper'>
+    return (        
+        <section className='filters_wrapper'>            
             <div className="filters_container">
-                <div className="filter_title">{props.filterTitle}</div>
+                <div className="filter_title">
+                    <div className='filter_main_title'>{props.filterTitle[0]}</div>
+                    <div className='filter_subtitle'>{props.filterTitle[1]} {props.filterTitle[2]} </div>
+                </div>
+
                 <div className='displayOption'>Display Options:
                     <div
-                        className={`displayOptionBtn ${props.displayOption==="grid"? "gridActive" :""}`}
+                        className={`displayOptionBtn ${props.displayOption === "grid" ? "gridActive" : ""}`}
                         type='button'
                         name="grid_3x3"
                         value="grid"
                         onClick={onClickDisplay}>
-                        <TfiLayoutGrid3/>
+                        <TfiLayoutGrid3 />
                     </div>
                     <div
-                        className={`displayOptionBtn ${props.displayOption==="full"? "fullActive" :""}`}
+                        className={`displayOptionBtn ${props.displayOption === "full" ? "fullActive" : ""}`}
                         type='button'
                         name="full"
                         value="full"
                         onClick={onClickDisplay}>
-                        <CgDisplayFullwidth/>
+                        <CgDisplayFullwidth />
                     </div>
                 </div>
+
                 <div className='filter_found'>Found {props.countFound} items</div>
-                <div className='filter_platforms'>Platforms: <br/>
+
+                <div className='filter_platforms'>Platforms: <br />
                     <button
                         type="button"
                         className={`btn_platform ${toggleButton[0] ? "btn_platform_true" : "btn_platform_false"}`}
@@ -125,12 +131,13 @@ const Filters = (props) => {
                         Nintendo
                     </button>
                 </div>
+
                 <div className='filter_orderBy'>Order By:
                     <div className="dropdown" id="dropdown_orderBy">
                         <button className="btn btn-secondary dropdown-toggle" id="dropdownBtn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {orderBy}
                         </button>
-                        <ul className="dropdown-menu">
+                        <ul className="dropdown-menu" id="dropdown-show">
                             <li>
                                 <a className="dropdown-item"
                                     onClick={onClickOrderBy}

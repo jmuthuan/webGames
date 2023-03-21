@@ -1,25 +1,22 @@
-/* 
-FFBF00
-e5e7e6
-0E0E0E
-747C92
-38369A */
 
 .cardGame{
     grid-area: cards; 
-    min-height: 60rem;   
+    min-height: 60rem;
+    border-top: 3px solid #504F4F;
+    border-left: 3px solid #504F4F;   
 }
 
 @media screen and (min-width: 360px) {
-    .h2_title{
-        /* grid-area: gameTitle; */
+    .h2_title{       
         color: white;
         font-size: 3rem;
         text-align: start;
         margin: 0.5rem 0;
+        padding-left: 3rem;
     }
     h3{
         font-size: 2rem;
+        width: 100%;
     }
     .aboutGameText {
         font-size: 1.1rem;     
@@ -41,8 +38,7 @@ e5e7e6
         background-color: rgba(0, 0, 0, 0.7);
         display: block;
         position: relative;
-        box-shadow: 10px 10px 5px rgba(50, 50, 50, 0.7);
-        /* left: 7vw; */
+        box-shadow: 10px 10px 5px rgba(50, 50, 50, 0.7);      
     }
 
     .extraInfo{
@@ -54,8 +50,7 @@ e5e7e6
 }
 
 @media screen and (min-width: 640px) {
-    .h2_title{
-        /* grid-area: gameTitle; */      
+    .h2_title{         
         font-size: 4rem;        
     }
 
@@ -85,9 +80,9 @@ e5e7e6
     }
 
     .gameScreenShots{
-        width: 40%;        
+        width: 50%;        
         display: inline-block;
-        position: absolute;
+        position: relative;        
     }
 
     .extraInfo{        
@@ -98,10 +93,14 @@ e5e7e6
         font-size: 1.4rem;
     }
 }
+
 .gameData{    
-    padding-left: 3rem;
+    font-family: Turret;
 }
 
+.info_wrapper{
+    padding-left: 3rem;
+}
 
 @media screen and (min-width: 360px) {
     .released{  
@@ -110,7 +109,7 @@ e5e7e6
         border-radius: 10px;
         display: inline-block;
         padding: 0.5rem 1rem;    
-        box-shadow: 5px 5px 2px;
+        box-shadow: 5px 5px 4px;
     }
     
     .card_platforms {
@@ -120,7 +119,7 @@ e5e7e6
         border-radius: 10px;
         margin: 1rem 1rem ;
         padding:0.5rem 1rem;
-        box-shadow: 5px 5px 2px;
+        box-shadow: 5px 5px 4px;
     }
     .card_platforms > svg{
         margin-right: 0.5rem;
@@ -138,7 +137,7 @@ e5e7e6
         border-radius: 10px;
         display: inline-block;
         padding: 0.5rem 1rem;
-        box-shadow: 5px 5px 2px;        
+        box-shadow: 5px 5px 4px;        
     }
 }
 
@@ -162,8 +161,7 @@ e5e7e6
     .avg_playtime{     
         font-size: 1.3rem; 
         display: inline-block;              
-    }
-    
+    }    
 }
 
 @media screen and (min-width: 1200px) {
@@ -188,9 +186,13 @@ e5e7e6
 .aboutGame{
     color: white;
     font-size: 3rem;
-    display: inline-block;
+    display: flex;
+    flex-wrap: wrap;
     width: 100%;
     padding: 2rem 2rem 1rem 0rem;
+    background-color: rgba(14,14,14,0.7);
+    padding-left: 3rem;
+    border-radius: 10px;
 }
 
 
@@ -199,15 +201,9 @@ e5e7e6
     margin: 0 auto;
     width: 80%;
 }
-#carrousel-arrow/*, .carousel-indicators */ {   
+#carrousel-arrow {   
     width: 10%;    
 }
-
-/* .carousel-item>img, .active>img{
-    height: 30rem; 
-}
- */
-
 .extraInfo div>span {
     text-decoration: underline;
     font-weight: 700;

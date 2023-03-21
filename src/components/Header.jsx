@@ -1,4 +1,5 @@
-import { useState } from "react";
+//import { useState } from "react";
+import { Link } from "react-router-dom";
 import HamburgerMenu from "./HamburgerMenu";
 
 
@@ -22,8 +23,10 @@ const Header = (props) => {
                 genres={props.genres}
                 onClickGenreBtn={props.onClickGenreBtn} />
 
-            <div className='header_container'>
-                <div>Video Games Club</div>
+            <div className='header_container'>      
+                <Link className="about" to={'/about'}>About</Link>          
+                {/* <a className="about" href="/about.html">About</a> */}
+                <div>Video Games Club</div>                
                 <form className="search_form" role="search">
                     <input
                         className="search_bar"
