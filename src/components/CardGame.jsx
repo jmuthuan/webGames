@@ -25,7 +25,6 @@ const CardGame = () => {
         const getGameData = async () => {
             const res = await axios.get(`${url}${slug}?key=${API_KEY}`);
             setGameData(res.data);
-            console.log("setGameData");
         }
 
         const getGameScreenshot = async () => {

@@ -20,9 +20,9 @@ const Header = (props) => {
                 genres={props.genres}
                 onClickGenreBtn={props.onClickGenreBtn} />
 
-            <div className='header_container'>      
-                <Link className="about" to={'/about'}>About</Link>
-                <div>Video Games Club</div>                
+            <div className='header_container'>
+                <span className="about_wrap"><Link className="about" to={'/about'}>About</Link></span>      
+                <div><a href="/">Video Games Club</a></div>                
                 <form className="search_form" role="search">
                     <input
                         className="search_bar"

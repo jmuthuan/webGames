@@ -68,7 +68,14 @@
     font-family: DuckHunt ;
     position: relative;
     bottom: 2.5rem;
-  }  
+  } 
+  
+  .header_container >div>a,
+  .header_container >div>a:visited
+  {
+    color: white;
+    text-decoration: none;
+  }
 
  .about{
   font-family: Turret;
@@ -88,6 +95,12 @@
  .about:hover{
     font-weight: 700;
     color: white;
+ }
+
+
+ .about_wrap{
+  display: flex;
+  flex-direction: row-reverse;  
  }
 
 .search_form{
