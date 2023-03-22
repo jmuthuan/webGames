@@ -3,14 +3,7 @@ import { useState, useEffect } from 'react';
 import Cards from '../components/Cards';
 import { Link } from 'react-router-dom';
 
-/*TEsting elements*/
-import gamesJSON_1 from '../components/TestingJSON/games1.json'
-import gamesJSON_2 from '../components/TestingJSON/games2.json'
-import gamesJSON_3 from '../components/TestingJSON/games3.json'
 import Pagination from '../components/Pagination';
-
-//Testin elements
-const API_KEY_CIBER = 'c21a2e0bd365470f86ef5fb3a5ce67b0';
 
 
 const SearchGames = (props) => {
@@ -18,7 +11,7 @@ const SearchGames = (props) => {
     const url = "https://api.rawg.io/api/games?"
     const page_size = 30;
 
-    let urlAxios = `${url}page_size=${page_size}&ordering=${props.orderBy}&key=${API_KEY_CIBER}`;
+    let urlAxios = `${url}page_size=${page_size}&ordering=${props.orderBy}&key=${API_KEY}`;
 
     const [games, setGames] = useState({});
 
@@ -30,20 +23,18 @@ const SearchGames = (props) => {
                 urlAxios+=`&page=${props.urlPage}`
             }
             const res = await axios.get(urlAxios);     
-            setGames(res.data);
-            //setGames(gamesJSON_1.results);                   
+            setGames(res.data);                
         }
         
         getGames();
         props.onChangeFoundItems(games.count);
         window.scrollTo(0, 0);
-        //console.log(urlAxios);
     }, [games.count, games.next, props.url, props.urlPage, props.orderBy]); 
     
    
 
     if(props.url){
-        urlAxios=`${url}page_size=${page_size}&ordering=${props.orderBy}&${props.url}&key=${API_KEY_CIBER}`;        
+        urlAxios=`${url}page_size=${page_size}&ordering=${props.orderBy}&${props.url}&key=${API_KEY}`;        
     }
 
     const onClickBtnPagination = (name)=>{

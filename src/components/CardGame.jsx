@@ -8,19 +8,13 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 
 import './CardGame.css'
 
-//Testin elements
-/* import gameDataJSON from './TestingJSON/gameData.json';
-import gameScreenshotsJSON from './TestingJSON/gameScreenshots.json' */
 //********************************************* */
 
 const CardGame = () => {
-    //const API_KEY = "c4191c510ad54fb8a7ee5b559e1b712e";
+    const API_KEY = "c4191c510ad54fb8a7ee5b559e1b712e";
     const url = "https://api.rawg.io/api/games/"
     const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dic"];
-
-
-    //Testin elements
-    const API_KEY_CIBER = 'c21a2e0bd365470f86ef5fb3a5ce67b0';
+   
     /******************* */
 
     const [gameData, setGameData] = useState({});
@@ -29,13 +23,13 @@ const CardGame = () => {
 
     useEffect(() => {
         const getGameData = async () => {
-            const res = await axios.get(`${url}${slug}?key=${API_KEY_CIBER}`);
+            const res = await axios.get(`${url}${slug}?key=${API_KEY}`);
             setGameData(res.data);
             console.log("setGameData");
         }
 
         const getGameScreenshot = async () => {
-            const res = await axios.get(`${url}${slug}/screenshots?key=${API_KEY_CIBER}`);
+            const res = await axios.get(`${url}${slug}/screenshots?key=${API_KEY}`);
             setScreenshot(res.data.results)           
         }
 
@@ -43,8 +37,6 @@ const CardGame = () => {
         getGameScreenshot()
     }, [gameData.id, slug, gameScreenshot.length]);
 
-
-    /* const colorsPlatforms = ["", "#FF00FF", "#276CB4", "#027701", "", "", "", "#DB1D07"]; */
     const colorsPlatforms = ["", "#000000", "#000000", "#000000", "", "", "", "#000000"];
 
     const date_released = new Date(gameData.released);
@@ -64,8 +56,7 @@ const CardGame = () => {
                         {` ${month[date_released.getMonth()]}`} {date_released.getDate()}, {date_released.getFullYear()}
                     </div>
 
-                    {(() => {
-                        //const parent_platforms = [1, 2, 3, 7]// gameData.parent_platforms.map(element => element.platform.id);                    
+                    {(() => {                                            
                         if (gameData.parent_platforms) {
                             const parent_platforms = gameData.parent_platforms.map(element => element.platform.id);
                             return (
@@ -155,7 +146,6 @@ const CardGame = () => {
                                 })}
                                 </div>
                             </section>
-
                         )
                     }
                 })()}

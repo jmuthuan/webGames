@@ -2,7 +2,6 @@ import './About.css';
 
 
 const About = () => {
-
     return (
         <div className="about_wrapper">
             <header className='about_header'>
@@ -81,16 +80,35 @@ const About = () => {
                             className="about_contact_form"
                             name='contact_message'
                             action='https://formspree.io/f/xwkjnobg'
-                            method='post'>
+                            method='post'
+                           >
 
                             <label className='form_item' htmlFor='input_name'>Name</label>
-                            <input className='form_item' type="text" name='name' placeholder="Enter your full name" id='input_name' />
+                            <input
+                                className='form_item'
+                                type="text"
+                                name='name'
+                                placeholder="Enter your full name"
+                                id='input_name' 
+                                required/>
 
                             <label className='form_item' htmlFor='input_email'>Email</label>
-                            <input className='form_item' type="text" name='email' placeholder="Enter your email" id='input_email' />
+                            <input
+                                className='form_item'
+                                type="email"
+                                name='email'
+                                placeholder="Enter your email"
+                                id='input_email'
+                                required />
 
                             <label className='form_item' htmlFor='input_area'>Comments</label>
-                            <textarea className='form_item form_text_area' id='input_area' name='comments' placeholder='Feel free to contact me!'></textarea>
+                            <textarea
+                                className='form_item form_text_area'
+                                id='input_area' 
+                                maxLength={500}
+                                required
+                                name='comments'
+                                placeholder='Feel free to contact me!'></textarea>
 
                             <button className='form_item btn_submit' type="submit">Send!</button>
                         </form>

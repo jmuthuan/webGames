@@ -8,11 +8,7 @@ import { useEffect, useState } from "react";
 
 
 const SearchData = () => {
-    /*  const state = {
-         platforms: [false, false, false, false], //[xbox, pc, playstation, nintendo]
-         genres: "",
-         searchText: "",
-     } */
+    
     const [platformState, setPlatforms] = useState([false, false, false, false]);
     const [genresState, setGenres] = useState(new Map([
         ["action", false],
@@ -58,12 +54,10 @@ const SearchData = () => {
             }
         })
         setPlatforms(toggle);
-        //console.log("props: " + toggle);
     }
 
     //Header component functions
-    const onClickSearch = () => {
-        
+    const onClickSearch = () => {        
         //search Query
         let searchQuery = "";
         if (searchState) {
@@ -90,7 +84,6 @@ const SearchData = () => {
         }
          
         //platform Query
-
         let platformQuery = "";
         if (platformState.some((element) => element === true)) {
             platformQuery = "parent_platforms=";
@@ -143,7 +136,6 @@ const SearchData = () => {
 
     //OrderBy dropdown Menu
     const onClickOrderBy = (value) => {
-        //console.log(value);
         setOrderByState(value);
         setUrlPageState(1);
     }
@@ -161,7 +153,6 @@ const SearchData = () => {
     //toggle hide_show genres Button
     const toggleGenreButton = (toggleGeneres) => {
         setHideGenresState(!toggleGeneres);
-       /*  console.log("Testing hide show button"); */
     }  
 
     useEffect(() => {
@@ -169,8 +160,7 @@ const SearchData = () => {
     }, [urlPageState])
 
     return (
-        <div className="main_page_wraper">
-          
+        <div className="main_page_wraper">          
             <Header
                 textValue={searchState}
                 genres={genresState}

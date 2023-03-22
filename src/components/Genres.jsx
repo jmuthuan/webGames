@@ -1,21 +1,13 @@
 import genres from './TestingJSON/genresJSON.json';
-import { useState } from 'react';
 
-const Genres = (props) => {
-
-    /* const [hide_show, toggleHideShow] = useState(false);   */     
+const Genres = (props) => {   
     
     const toggleButton = () => {
         props.toggleGenreButton(props.hideGenres);
     }     
 
-    /* 
-    hideGenres={props.hideGenres}
-    toggleGenreButton={props.toggleGenreButton} */
-
     return (
-        <nav className={`aside_nav_container ${props.hamburger?'aside_container_flex':''}`}>
-                {/* <a className="home" href="http://localhost:3000/">Home</a> */}
+        <nav className={`aside_nav_container ${props.hamburger?'aside_container_flex':''}`}>          
                 <a className="home" href='/'>Home</a>
                 
                 {
@@ -32,11 +24,7 @@ const Genres = (props) => {
                                 value={genre.slug}
                                 key={genre.slug}
                                 onClick={()=>props.onClickGenreBtn(genre.slug)}
-                                /* style={
-                                    {
-                                        display: hide_flag
-                                    }
-                                } */>
+                                >
                                 {genre.name}                                
                             </button>
                         );

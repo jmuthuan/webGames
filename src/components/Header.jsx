@@ -1,13 +1,10 @@
-//import { useState } from "react";
 import { Link } from "react-router-dom";
 import HamburgerMenu from "./HamburgerMenu";
 
 
 const Header = (props) => {
-    //const [searchText, setSearchText] = useState("");
 
     const changeText = (e) =>{
-        //setSearchText(e.target.value);
         props.onChangeText(e.target.value);
     }
 
@@ -24,8 +21,7 @@ const Header = (props) => {
                 onClickGenreBtn={props.onClickGenreBtn} />
 
             <div className='header_container'>      
-                <Link className="about" to={'/about'}>About</Link>          
-                {/* <a className="about" href="/about.html">About</a> */}
+                <Link className="about" to={'/about'}>About</Link>
                 <div>Video Games Club</div>                
                 <form className="search_form" role="search">
                     <input

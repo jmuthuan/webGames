@@ -34,8 +34,6 @@ const Filters = (props) => {
                 props.onClickOrderBy(e.target.getAttribute("value"))
                 break;
         }
-
-        //props.onClickOrderBy(e.target.getAttribute("value"));
     }
 
     let orderBy;
@@ -139,30 +137,30 @@ const Filters = (props) => {
                         </button>
                         <ul className="dropdown-menu" id="dropdown-show">
                             <li>
-                                <a className="dropdown-item"
+                                <button className="dropdown-item"
                                     onClick={onClickOrderBy}
                                     value="relevance">
-                                    Relevance</a></li>
+                                    Relevance</button></li>
                             <li>
-                                <a className="dropdown-item"
+                                <button className="dropdown-item"
                                     onClick={onClickOrderBy}
                                     value="name">
-                                    Name</a></li>
+                                    Name</button></li>
                             <li>
-                                <a className="dropdown-item"
+                                <button className="dropdown-item"
                                     onClick={onClickOrderBy}
                                     value="released">
-                                    Released Date</a></li>
+                                    Released Date</button></li>
                             <li>
-                                <a className="dropdown-item"
+                                <button className="dropdown-item"
                                     onClick={onClickOrderBy}
                                     value="metacritic">
-                                    Popularity</a></li>
+                                    Popularity</button></li>
                             <li>
-                                <a className="dropdown-item"
+                                <button className="dropdown-item"
                                     onClick={onClickOrderBy}
                                     value="rating">
-                                    Average Rating</a></li>
+                                    Average Rating</button></li>
                         </ul>
                     </div>
                 </div>

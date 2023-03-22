@@ -4,11 +4,6 @@ import './HamburgerMenu.css';
 
 const HamburgerMenu = (props) => {
 
-    const showSettings = (e) => {
-        e.target.preventDefault();
-        console.log("Testing hamburger");
-    }
-
     return (
         <div className='hamburger-wrapper'>
             <Menu>                

@@ -2,8 +2,6 @@ import './Pagination.css';
 import { useEffect, useState } from 'react';
 
 const Pagination = (props) => {
-    //const urlTest = "https://api.rawg.io/api/games?key=c21a2e0bd365470f86ef5fb3a5ce67b0&page=25000";
-
     const [actualPage, setActualPage] = useState(1);
     let shortPagination = true;
     const lastPage = Math.ceil(props.count / props.pageSize);   
@@ -11,8 +9,7 @@ const Pagination = (props) => {
 
     if (lastPage > 1) {
         if (props.url.includes("page=")) {
-           setActualPage(props.url.slice(props.url.indexOf("page=") + 5));
-           //actualPageTest=props.url.slice(props.url.indexOf("page=") + 5);
+           setActualPage(props.url.slice(props.url.indexOf("page=") + 5));          
         }
 
         if (lastPage > 7) {//long pagination
@@ -35,7 +32,6 @@ const Pagination = (props) => {
     }
 
     const onClickBtnPagination = (name)=>{
-
         if(!isNaN(name)){
             props.onClickBtnPagination(name);                      
         }
@@ -49,8 +45,7 @@ const Pagination = (props) => {
     }
 
     useEffect(()=>{
-        setActualPage(props.urlPage); 
-        //window.scrollTo(0, 0);       
+        setActualPage(props.urlPage);        
     },[actualPage, props.urlPage])
    
 
