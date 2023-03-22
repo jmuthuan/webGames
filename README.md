@@ -1,6 +1,14 @@
-# Getting Started with Create React App
+# About this Site Web
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This site was created as a hobby and personal use. It is intended for all people who are passionate about video games.
+
+On the site you can search for your favorite games and have information about them.
+
+The site allows you to search by entering keywords, by platforms (Xbox, PC, Nintendo and Playstation), and also by genres (you can select from more than 20 genres!). You can also sort the search results according to your preferences (Relevance, Name, Released Date, Popularity, Average Rating).
+
+## Technologies
+This site was built using React JS. Además se utilizó JSX, HTML, CSS, Bootstrap y Axios.
+All data is pulled from the [RAWG Video Games Database API](https://rawg.io/apidocs) using Axios.
 
 ## Available Scripts
 

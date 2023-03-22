@@ -35,7 +35,7 @@ const About = () => {
                     <section className="about_technoligies"><span>Technologies</span>
                         <div className="about_technologies_info">
                             <p>
-                                This site was built using React JS. Además se utilizó JSX, HTML, CSS, Bootstrap y Axios.
+                                This site was built using React JS. In addition, JSX, HTML, CSS, Bootstrap and Axios were used.
                             </p>
                             <div className='about_technologies_logos'>
                                 <a href="https://react.dev/"><img className='img_logo' src="img/logos/react.png" alt='react logo' /></a>
