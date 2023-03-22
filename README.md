@@ -13,7 +13,7 @@ All data is pulled from the [RAWG Video Games Database API](https://rawg.io/apid
 ## Site Description
 
 ### Home Page
-(![Home page](public/img/readme/github_webGamesHome.png))
+![Home page](public/img/readme/github_webGamesHome.png)
 
 `1` On the home page you can use the search bar to search for any game by its name.
 
@@ -36,3 +36,6 @@ genres and screenshots.
 ![About page](public/img/readme/github_webGamesAbout_3.png)
 
 Here you will find information about the site, the technologies used to develop it, as well as information about the developer and a contact form.
+
+
+[Web Site Video Presentation](public/img/readme/Video%20Games%20Club%20-%20Google%20Chrome%202023-03-22%2016-43-03.mp4)
