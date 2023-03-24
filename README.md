@@ -38,4 +38,4 @@ genres and screenshots.
 Here you will find information about the site, the technologies used to develop it, as well as information about the developer and a contact form.
 
 
-[Web Site Video Presentation](public/img/readme/Video%20Games%20Club%20-%20Google%20Chrome%202023-03-22%2016-43-03.mp4)
+[Web Site Video Presentation](public/img/readme/Web%20Games%20Video.mp4)
