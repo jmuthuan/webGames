@@ -39,7 +39,7 @@ const About = () => {
                             </p>
                             <div className='about_technologies_logos'>
                                 <a href="https://react.dev/"><img className='img_logo' src="img/logos/react.png" alt='react logo' /></a>
-                                <a href="https://react.dev/learn/writing-markup-with-jsx"> <img className='img_logo' src="img/logos/jsx.png" alt='jsx logo' /></a>
+                                <a href="https://react.dev/learn/writing-markup-with-jsx"><img className='img_logo' src="img/logos/jsx.png" alt='jsx logo' /></a>
                                 <a href="https://developer.mozilla.org/en-US/docs/Web/HTML"><img className='img_logo' src="img/logos/html.svg" alt='html logo' /></a>
                                 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS"><img className='img_logo' src="img/logos/css.svg" alt='css logo' /></a>
                                 <a href="https://axios-http.com/"><img className='img_logo' src="img/logos/axios.png" alt='axios logo' /></a>
