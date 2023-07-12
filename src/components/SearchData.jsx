@@ -106,6 +106,9 @@ const SearchData = () => {
                         if (element) {
                             platformQuery += "7,"; //Nintendo
                         }
+                        break;
+                    default:
+                        break;    
                 }
             })
             platformQuery = platformQuery.slice(0, platformQuery.length - 1);

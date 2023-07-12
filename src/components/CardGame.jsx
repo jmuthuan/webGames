@@ -27,14 +27,18 @@ const CardGame = () => {
             setGameData(res.data);
         }
 
+        getGameData();        
+    }, []);
+
+    useEffect(()=>{
         const getGameScreenshot = async () => {
             const res = await axios.get(`${url}${slug}/screenshots?key=${API_KEY}`);
             setScreenshot(res.data.results)           
         }
 
-        getGameData();
         getGameScreenshot()
-    }, [gameData.id, slug, gameScreenshot.length]);
+    },[])
+
 
     const colorsPlatforms = ["", "#000000", "#000000", "#000000", "", "", "", "#000000"];
 

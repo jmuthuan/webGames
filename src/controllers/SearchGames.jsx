@@ -23,15 +23,16 @@ const SearchGames = (props) => {
                 urlAxios+=`&page=${props.urlPage}`
             }
             const res = await axios.get(urlAxios);     
-            setGames(res.data);                
+            setGames(res.data);
+            props.onChangeFoundItems(res.data.count);
+            window.scrollTo(0, 0);                
         }
-        
+
         getGames();
-        props.onChangeFoundItems(games.count);
-        window.scrollTo(0, 0);
-    }, [games.count, games.next, props.url, props.urlPage, props.orderBy]); 
+        
+    }, [props.url , props.urlPage, props.orderBy ]); 
     
-   
+    
 
     if(props.url){
         urlAxios=`${url}page_size=${page_size}&ordering=${props.orderBy}&${props.url}&key=${API_KEY}`;        
