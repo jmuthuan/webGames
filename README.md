@@ -36,6 +36,3 @@ genres and screenshots.
 ![About page](public/img/readme/github_webGamesAbout_3.png)
 
 Here you will find information about the site, the technologies used to develop it, as well as information about the developer and a contact form.
-
-
-[Web Site Video Presentation](public/img/readme/Web%20Games%20Video.mp4)
