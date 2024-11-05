@@ -6,6 +6,8 @@ On the site you can search for your favorite games and have information about th
 
 The site allows you to search by entering keywords, by platforms (Xbox, PC, Nintendo and Playstation), and also by genres (you can select from more than 20 genres!). You can also sort the search results according to your preferences (Relevance, Name, Released Date, Popularity, Average Rating).
 
+**Website:** [Project Website](https://video-game-club.netlify.app/)  
+
 ## Technologies
 This site was built using React JS. Además se utilizó JSX, HTML, CSS, Bootstrap y Axios.
 All data is pulled from the [RAWG Video Games Database API](https://rawg.io/apidocs) using Axios.
